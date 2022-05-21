@@ -3,6 +3,7 @@ import { ObjectIdColumn, ObjectID, Column, BeforeInsert, BeforeUpdate } from "ty
 import { getCurrentInSeconds } from "src/utils/helper";
 
 export abstract class AbstractEntity {
+
     @ObjectIdColumn()
     public id: ObjectID;
 
@@ -12,10 +13,14 @@ export abstract class AbstractEntity {
     @Column({ type: 'number' })
     public updatedAt: number;
 
+    @Column({ type: 'boolean' })
+    public isDeleted: boolean;
+
     @BeforeInsert()
-    insertDates() {
+    insertDefault() {
         this.createdAt = getCurrentInSeconds();
         this.updatedAt = getCurrentInSeconds();
+        this.isDeleted = false;
     }
 
     @BeforeUpdate()
