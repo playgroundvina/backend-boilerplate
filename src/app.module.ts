@@ -7,6 +7,7 @@ import { Connection } from 'typeorm';
 
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
+import { OffersModule } from './modules/offers/offers.module';
 
 @Module({
   imports: [
@@ -33,6 +34,8 @@ import { UserModule } from './user/user.module';
     }),
 
     UserModule,
+
+    OffersModule,
   ],
   controllers: [],
   providers: [],
