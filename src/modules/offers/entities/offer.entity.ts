@@ -1,4 +1,5 @@
-import { AbstractEntity } from "src/common/entities/abstract-entity"
+
+import { AbstractEntity } from "src/common/entities"
 import { Column, Entity, Index } from "typeorm"
 
 @Entity('offer')

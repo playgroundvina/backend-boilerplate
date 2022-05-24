@@ -5,8 +5,6 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 
-import { User } from './user/entities/user.entity';
-import { UserModule } from './user/user.module';
 import { OffersModule } from './modules/offers/offers.module';
 
 @Module({
@@ -29,11 +27,9 @@ import { OffersModule } from './modules/offers/offers.module';
       password: process.env.MONGO_PASSWORD,
       database: process.env.MONGO_DATABASE,
       autoLoadEntities: true,
-      entities: [User],
+      entities: [],
       extra: { "authSource": "admin" },
     }),
-
-    UserModule,
 
     OffersModule,
   ],
